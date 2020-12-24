@@ -1,4 +1,5 @@
 import os
+import threading
 from flask import Flask, Response
 import requests
 from xml.etree import ElementTree
@@ -80,8 +81,13 @@ def get_new_patch_url(url):
             raise UpdateDoseNotExist
     except UpdateDoseNotExist:
         # load the Update and return the original url
-        load_mar_file(url, local_path, operating_system, lang)
-        return url
+        if getattr(settings, 'LOAD_UPDATES_ASYNCHRONOUS'):
+            thr = threading.Thread(target=load_mar_file, args=(url, local_path, operating_system, lang))
+            thr.start()
+            return url
+        else:
+            load_mar_file(url, local_path, operating_system, lang)
+            get_new_patch_url(url)
 
 
 @app.route('/update/2/Firefox/<version>/<build_id>/<build_target>/<locale>/<channel>/<os_version>/update.xml')
