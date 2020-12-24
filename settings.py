@@ -7,4 +7,4 @@ UPDATE_FILE_PATH = os.path.dirname(os.path.abspath(__file__)) + '/updates'
 SERVER_URL = 'http://192.168.188.105'
 
 # The Upstream Update-Server
-MOZILLA_AUS_URL = 'https://https://aus5.mozilla.org'
+MOZILLA_AUS_URL = 'https://aus5.mozilla.org'
