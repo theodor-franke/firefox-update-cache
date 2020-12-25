@@ -13,3 +13,7 @@ MOZILLA_AUS_URL = 'https://aus5.mozilla.org'
 # True: The server will return the original xml file and download the .mar in the background. The server will return the
 #       already downloaded .mar file when the same .mar file is requested again.
 LOAD_UPDATES_ASYNCHRONOUS = True
+
+# The target-firefox-version as a string (for example 72.0.2)
+# If you want to always serve the newest version simply set this value to False
+TARGET_FIREFOX_VERSION = False

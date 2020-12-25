@@ -5,6 +5,7 @@ This application caches firefox-update-packages
 ## Features
 
 * Cache firefox-update-files
+* Set a maximum version for all your clients
 
 ## Requirements
 + Nginx 
